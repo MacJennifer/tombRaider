@@ -1,0 +1,46 @@
+.containerAdmin {
+  // width: 100%;
+  display: flex;
+  flex-direction: row;
+  // border: 2px solid red;
+  .sidebar {
+    width: 450px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    padding-top: 20px;
+
+    .imgAdmin {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px auto;
+    }
+    .navBar {
+      color: white;
+      text-align: center;
+      margin-top: 100px;
+    }
+  }
+  .imgBackground {
+    width: 100%;
+    margin: auto;
+    // border: 2px solid green;
+    .background-image {
+      background-image: url("../assets/images/fondEcranAdmin.jpg");
+      background-size: cover;
+      width: auto;
+      height: 1269px;
+      opacity: 0.5;
+    }
+  }
+}
+.containerGames {
+  background-color: black;
+  width: 100%;
+  min-height: 1252px;
+}

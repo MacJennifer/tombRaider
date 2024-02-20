@@ -27,11 +27,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
-
-Route::apiResource("games", GameController::class);
-Route::apiResource("releaseDate", ReleaseDateController::class);
-
-
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -39,3 +34,5 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/currentuser', [UserController::class, 'currentUser']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+Route::apiResource("games", GameController::class);
+Route::apiResource("releaseDate", ReleaseDateController::class);
