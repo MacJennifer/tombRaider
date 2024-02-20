@@ -10,8 +10,8 @@ class ReleaseDate extends Model
     use HasFactory;
     protected $fillable = ['releaseDate'];
 
-    public function game()
-    {
-        return $this->belongsTo(Game::class);
-    }
+    // public function game()
+    // {
+    //     return $this->hasMany(Game::class, 'release_id');
+    // }
 }

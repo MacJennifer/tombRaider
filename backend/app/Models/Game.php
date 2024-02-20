@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
-    protected $fillable = ['titleGames', 'image', 'gender', 'platform', 'editor', 'description', 'releaseDate_id'];
+    protected $fillable = ['titleGames', 'image', 'gender', 'platform', 'editor', 'description', 'release_id'];
 
-    public function releaseDates()
+    public function releaseDate()
     {
-        return $this->hasMany(ReleaseDate::class);
+        return $this->belongsTo(ReleaseDate::class, 'release_id');
     }
 }

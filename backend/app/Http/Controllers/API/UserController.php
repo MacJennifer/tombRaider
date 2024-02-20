@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function currentUser()
     {
-        $users = User::all();
+
         return response()->json([
             'meta' => [
                 'code' => 200,
