@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReleaseDate extends Model
 {
     use HasFactory;
-    protected $fillable = ['releaseDate'];
+    protected $fillable = ['date'];
 
     // public function game()
     // {

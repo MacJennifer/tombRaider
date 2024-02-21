@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('release_dates', function (Blueprint $table) {
             $table->id();
-            $table->string('releaseDate');
+            $table->string('date');
             $table->timestamps();
         });
     }

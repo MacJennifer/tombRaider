@@ -15,9 +15,11 @@ const AddGame = () => {
   const [platform, setPlatform] = useState("");
   const [editor, setEditor] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+
   const [release_id, setReleaseId] = useState("");
   const [releaseDates, setReleaseDates] = useState([]);
+
+  const [image, setImage] = useState("");
 
   const changeHandler = (event) => {
     console.log(event);
@@ -34,25 +36,22 @@ const AddGame = () => {
   }, []);
 
   const getReleaseDates = async () => {
-    try {
-      const res = await axios.get("http://127.0.0.1:8000/api/releaseDate");
-
-      setReleaseDates(res.data.data);
-    } catch (error) {
-      console.error("Error fetching release dates:", error);
-    }
+    await axios.get("http://127.0.0.1:8000/api/releaseDates").then((res) => {
+      // console.log(res.data);
+      setReleaseDates(res.data);
+    });
   };
-  const addArticles = async (e) => {
+  const addGames = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
 
     formData.append("titleGames", titleGames);
+    formData.append("image", image);
     formData.append("gender", gender);
     formData.append("platform", platform);
     formData.append("editor", editor);
     formData.append("description", description);
-    formData.append("image", image);
     formData.append("release_id", release_id);
 
     await axios
@@ -66,7 +65,7 @@ const AddGame = () => {
   };
   return (
     <div>
-      <div className="container mt-2">
+      <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
             <div className="card">
@@ -97,30 +96,16 @@ const AddGame = () => {
                       </Form.Group>
                     </Col>
                   </Row>
-                  <Form onSubmit={addArticles}>
+                  <Form onSubmit={addGames}>
                     <Row>
                       <Col>
                         <Form.Group controlId="titleGames">
-                          <Form.Label>Titre</Form.Label>
+                          <Form.Label>Nom</Form.Label>
                           <Form.Control
                             type="text"
                             value={titleGames}
                             onChange={(event) => {
                               setTitleGames(event.target.value);
-                            }}
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <Form.Group controlId="description">
-                          <Form.Label>Description : </Form.Label>
-                          <Form.Control
-                            type="text"
-                            value={description}
-                            onChange={(event) => {
-                              setDescription(event.target.value);
                             }}
                           />
                         </Form.Group>
@@ -143,7 +128,7 @@ const AddGame = () => {
                     <Row>
                       <Col>
                         <Form.Group controlId="platform">
-                          <Form.Label>Platform : </Form.Label>
+                          <Form.Label>platform : </Form.Label>
                           <Form.Control
                             type="text"
                             value={platform}
@@ -170,8 +155,22 @@ const AddGame = () => {
                     </Row>
                     <Row>
                       <Col>
+                        <Form.Group controlId="description">
+                          <Form.Label>Description : </Form.Label>
+                          <Form.Control
+                            type="text"
+                            value={description}
+                            onChange={(event) => {
+                              setDescription(event.target.value);
+                            }}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
                         <Form.Group controlId="position">
-                          <Form.Label>Catégorie</Form.Label>
+                          <Form.Label>Date de sortie : </Form.Label>
                           <Form.Control
                             as="select"
                             value={release_id}
@@ -182,7 +181,7 @@ const AddGame = () => {
                                 key={releaseDate.id}
                                 value={releaseDate.id}
                               >
-                                {releaseDate.releaseDate}
+                                {releaseDate.date}
                               </option>
                             ))}
                           </Form.Control>

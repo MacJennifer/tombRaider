@@ -15,7 +15,7 @@ class ReleaseDateController extends Controller
     {
         $releaseDates = ReleaseDate::all();
 
-        return request()->json($releaseDates);
+        return response()->json($releaseDates);
     }
 
     /**
@@ -24,14 +24,14 @@ class ReleaseDateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'releaseDate' => 'required|max:100'
+            'date' => 'required|max:100'
         ]);
 
         $releaseDate = ReleaseDate::create($request->all());
 
         return response()->json([
             'status' => 'success',
-            'releaseDate' => $releaseDate
+            'data' => $releaseDate
         ]);
     }
 
@@ -40,7 +40,8 @@ class ReleaseDateController extends Controller
      */
     public function show(ReleaseDate $releaseDate)
     {
-        return request()->json($releaseDate);
+        // dd($releaseDate);
+        return response()->json($releaseDate);
     }
 
     /**
@@ -49,14 +50,14 @@ class ReleaseDateController extends Controller
     public function update(Request $request, ReleaseDate $releaseDate)
     {
         $request->validate([
-            'releaseDate' => 'required|max:100'
+            'date' => 'required|max:100'
         ]);
 
         $releaseDate->update($request->all());
 
         return response()->json([
             'status' => 'Mise à jour avec succès',
-            'releaseDate' => $releaseDate
+            'data' => $releaseDate
         ]);
     }
 

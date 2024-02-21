@@ -16,7 +16,6 @@ const EditGame = () => {
   const [platform, setPlatform] = useState("");
   const [editor, setEditor] = useState("");
   const [description, setDescription] = useState("");
-
   const [image, setImage] = useState("");
 
   useEffect(() => {

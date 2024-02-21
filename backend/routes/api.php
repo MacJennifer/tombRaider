@@ -35,4 +35,4 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 Route::apiResource("games", GameController::class);
-Route::apiResource("releaseDate", ReleaseDateController::class);
+Route::apiResource("releaseDates", ReleaseDateController::class);
