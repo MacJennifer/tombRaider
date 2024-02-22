@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate, useParams } from "react-router-dom";
-
+import NavigationAdmin from "../../components/NavigationAdmin";
 const EditGame = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
@@ -16,10 +16,14 @@ const EditGame = () => {
   const [platform, setPlatform] = useState("");
   const [editor, setEditor] = useState("");
   const [description, setDescription] = useState("");
+  const [release_id, setReleaseId] = useState(null);
+  const [releaseDates, setReleaseDates] = useState([]);
+
   const [image, setImage] = useState("");
 
   useEffect(() => {
     getGame();
+    getReleaseDates();
   }, []);
 
   const getGame = async () => {
@@ -39,7 +43,14 @@ const EditGame = () => {
       console.error("Error fetching game:", error);
     }
   };
-
+  const handleChange = (event) => {
+    setReleaseId(event.target.value);
+  };
+  const getReleaseDates = async () => {
+    await axios.get("http://127.0.0.1:8000/api/releaseDates").then((res) => {
+      setReleaseDates(res.data);
+    });
+  };
   const changeHandler = (event) => {
     setImage(event.target.files[0]);
   };
@@ -70,10 +81,12 @@ const EditGame = () => {
 
   return (
     <div>
-      <div className="container mt-5">
+      <div className="containerEditGame">
+        <NavigationAdmin />
+
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
-            <div className="card">
+            <div className="card mt-5">
               <div className="card-body">
                 <h4 className="card-title">Modifier un jeu</h4>
                 <hr />
@@ -169,6 +182,27 @@ const EditGame = () => {
                               setDescription(event.target.value);
                             }}
                           />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <Form.Group controlId="releaseDate">
+                          <Form.Label>Date de sortie : </Form.Label>
+                          <Form.Control
+                            as="select"
+                            value={release_id}
+                            onChange={handleChange}
+                          >
+                            {releaseDates.map((releaseDate) => (
+                              <option
+                                key={releaseDate.id}
+                                value={releaseDate.id}
+                              >
+                                {releaseDate.date}
+                              </option>
+                            ))}
+                          </Form.Control>
                         </Form.Group>
                       </Col>
                     </Row>

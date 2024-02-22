@@ -58,4 +58,15 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    public function getJWTClaims()
+    {
+        return [
+            'role_id' => $this->role_id,
+
+        ];
+    }
+    public function isAdmin()
+    {
+        return $this->role_id == 2;
+    }
 }

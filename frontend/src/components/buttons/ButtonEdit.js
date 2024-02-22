@@ -1,10 +1,14 @@
 import Button from "react-bootstrap/Button";
+import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 function ButtonEdit({ go }) {
   return (
     <>
       <Link to={go}>
-        <Button variant="success">Modifier</Button>
+        <Button className="buttonEdit">
+          <FaEdit />
+        </Button>
       </Link>{" "}
     </>
   );

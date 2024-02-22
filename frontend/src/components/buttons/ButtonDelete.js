@@ -1,10 +1,10 @@
-import React from "react";
 import Button from "react-bootstrap/Button";
+import { FaTrash } from "react-icons/fa";
 
 const ButtonDelete = ({ onClick }) => {
   return (
-    <Button variant="danger" onClick={onClick}>
-      Supprimer
+    <Button className="buttonDelete" onClick={onClick}>
+      <FaTrash />
     </Button>
   );
 };

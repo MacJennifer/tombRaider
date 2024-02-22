@@ -18,7 +18,7 @@ function Sidebar() {
           <Nav.Link href="admin/games" className="navBar">
             Games
           </Nav.Link>
-          <Nav.Link href="/link" className="navBar">
+          <Nav.Link href="admin/releaseDates" className="navBar">
             ReleaseDate
           </Nav.Link>
         </Nav>

@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
-
+import NavigationAdmin from "../../components/NavigationAdmin";
 const AddGame = () => {
   const navigate = useNavigate();
   const [validationError, setValidationError] = useState({});
@@ -65,11 +65,12 @@ const AddGame = () => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="containerAddGame">
+        <NavigationAdmin />
         <div className="row justify-content-center">
           <div className="col-12 col-sm-12 col-md-6">
-            <div className="card">
-              <div className="card-body">
+            <div className="card mt-5">
+              <div className="card-body ">
                 <h4 className="card-title">Création d'un jeu</h4>
                 <hr />
                 <div className="form-wrapper">
@@ -169,13 +170,14 @@ const AddGame = () => {
                     </Row>
                     <Row>
                       <Col>
-                        <Form.Group controlId="position">
+                        <Form.Group controlId="releaseDate">
                           <Form.Label>Date de sortie : </Form.Label>
                           <Form.Control
                             as="select"
                             value={release_id}
                             onChange={handleChange}
                           >
+                            <option value="">Sélectionnez une date</option>
                             {releaseDates.map((releaseDate) => (
                               <option
                                 key={releaseDate.id}

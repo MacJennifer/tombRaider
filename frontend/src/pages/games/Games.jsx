@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-
-import ButtonAdd from "../../components/buttons/ButtonAdd";
+import ButtonRound from "../../components/buttons/ButtonRound";
+// import ButtonAdd from "../../components/buttons/ButtonAdd";
 import ButtonDelete from "../../components/buttons/ButtonDelete";
 import ButtonEdit from "../../components/buttons/ButtonEdit";
-
+import NavigationAdmin from "../../components/NavigationAdmin";
 const Games = () => {
   const [games, setGames] = useState([]);
 
@@ -26,7 +26,7 @@ const Games = () => {
   const handleDelete = async (gameId) => {
     try {
       await axios.delete(`http://localhost:8000/api/games/${gameId}`);
-      // Supprimer l'article
+      // Supprimer le jeu
       setGames(games.filter((game) => game.id !== gameId));
     } catch (error) {
       console.error("Error deleting game:", error);
@@ -35,25 +35,22 @@ const Games = () => {
 
   return (
     <div className="containerGames">
+      <NavigationAdmin />
       <h2 className="text-center mb-4 display-4">Games</h2>
-      <ButtonAdd go="/admin/addGame" />
+      <ButtonRound go={`/admin/addGame/`} />
       <div className="row">
         {games.map((game) => (
           <div className="col-md-4" key={game.id}>
             <Card className="mb-4">
               <Card.Body>
-                <Card.Title>{game.titleGames}</Card.Title>
-                <Card className="mb-4">
+                <Card.Title className="titleCard">{game.titleGames}</Card.Title>
+                <Card className="imgCard">
                   <img
                     src={`http://localhost:8000/storage/uploads/${game.image}`}
                     alt="Lara Croft"
-                    style={{ width: "50%", height: "50%" }}
+                    style={{ width: "50%", height: "50%", margin: "auto" }}
                   />
                 </Card>
-                <Card.Text>{game.gender}</Card.Text>
-                <Card.Text>{game.platform}</Card.Text>
-                <Card.Text>{game.editor}</Card.Text>
-                <Card.Text>{game.description}</Card.Text>
                 <ButtonEdit go={`/admin/editGame/${game.id}`} />
                 <ButtonDelete onClick={() => handleDelete(game.id)} />
               </Card.Body>
