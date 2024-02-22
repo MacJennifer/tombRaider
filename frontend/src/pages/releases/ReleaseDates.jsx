@@ -41,23 +41,25 @@ const ReleaseDates = () => {
   return (
     <div className="containerReleaseDates">
       <NavigationAdmin />
-      <h2 className="text-center mb-4 display-4">Date de sortie</h2>
-      <ButtonRound go={`/admin/addReleaseDate/`} />
-      <div className="row">
-        {releaseDates.map((releaseDate) => (
-          <div className="col-md-4" key={releaseDate.id}>
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Title className="titleCard">
-                  {releaseDate.date}
-                </Card.Title>
+      <div className="formReleaseDate">
+        <h2 className="text-center mb-4 display-4">Date de sortie</h2>
+        <ButtonRound go={`/admin/addReleaseDate/`} />
+        <div className="row">
+          {releaseDates.map((releaseDate) => (
+            <div className="col-md-4" key={releaseDate.id}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title className="titleCard">
+                    {releaseDate.date}
+                  </Card.Title>
 
-                <ButtonEdit go={`/admin/editReleaseDate/${releaseDate.id}`} />
-                <ButtonDelete onClick={() => handleDelete(releaseDate.id)} />
-              </Card.Body>
-            </Card>
-          </div>
-        ))}
+                  <ButtonEdit go={`/admin/editReleaseDate/${releaseDate.id}`} />
+                  <ButtonDelete onClick={() => handleDelete(releaseDate.id)} />
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -7,8 +7,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { Controller, useForm } from "react-hook-form";
 import { AiOutlineEye, AiTwotoneEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import image from "../../assets/images/tombRaider.jpg";
 import auth from "../../services/token";
-
 function LoginForm() {
   document.title = "Connexion au site";
 
@@ -46,13 +46,16 @@ function LoginForm() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <Card style={{ width: "400px", maxWidth: "90%" }}>
+    <div className="containerLogin">
+      <div className="imgLogin">
+        <img src={image} alt="Lara Croft" />
+      </div>
+      <div className="formLogin">
         <Card.Body>
-          <Card.Title className="text-center mb-4">Connexion</Card.Title>
+          <Card.Title className="titleLogin">Connexion</Card.Title>
           <Form onSubmit={handleSubmit(login)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Adresse mail</Form.Label>
+              <Form.Label className="labelLogin">Adresse mail</Form.Label>
               <Controller
                 name="email"
                 control={control}
@@ -76,7 +79,7 @@ function LoginForm() {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Mot de passe</Form.Label>
+              <Form.Label className="labelLogin">Mot de passe</Form.Label>
               <InputGroup>
                 <InputGroup.Text onClick={handleClickShowPassword}>
                   {showPassword ? <AiOutlineEye /> : <AiTwotoneEyeInvisible />}
@@ -104,15 +107,17 @@ function LoginForm() {
               </InputGroup>
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100">
+            <Button variant="dark" type="submit" className="w-100">
               Se connecter
             </Button>
-            <div className="text-center">
-              <Link to="/register">Créer un compte</Link>
+            <div>
+              <Link to="/register" className="createAccountLogin">
+                Créer un compte
+              </Link>
             </div>
           </Form>
         </Card.Body>
-      </Card>
+      </div>
     </div>
   );
 }

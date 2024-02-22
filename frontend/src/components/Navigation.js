@@ -27,7 +27,7 @@ function Navigation() {
           >
             <Nav className="me-auto me-lg-2">
               <Link
-                to="/"
+                to="/home"
                 className="nav-link"
                 style={{ textDecoration: "none" }}
               >
