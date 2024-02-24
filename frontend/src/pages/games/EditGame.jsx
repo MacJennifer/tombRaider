@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate, useParams } from "react-router-dom";
 import NavigationAdmin from "../../components/NavigationAdmin";
+
 const EditGame = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const EditGame = () => {
   const [platform, setPlatform] = useState("");
   const [editor, setEditor] = useState("");
   const [description, setDescription] = useState("");
-  const [release_id, setReleaseId] = useState(null);
+  const [release_id, setReleaseId] = useState("");
   const [releaseDates, setReleaseDates] = useState([]);
 
   const [image, setImage] = useState("");

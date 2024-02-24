@@ -1,10 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"; //Navigate
+import { BrowserRouter, Route, Routes } from "react-router-dom"; //Navigate
 import Home from "./pages/Home";
 import Admin from "./pages/admin/Admin";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Details from "./pages/details";
 import AddGame from "./pages/games/AddGame";
 import EditGame from "./pages/games/EditGame";
 import Game from "./pages/games/Games";
@@ -23,16 +24,30 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Login />} />
         <Route
+          path="/details/:id"
+          element={
+            auth.isLoggedIn() ? (
+              auth.getExpiryTime() && auth.loggedAdmin() ? (
+                <Details />
+              ) : (
+                <redirect to="/home" replace={true} />
+              )
+            ) : (
+              <redirect to="/" replace={true} />
+            )
+          }
+        />
+        <Route
           path="/admin"
           element={
             auth.isLoggedIn() ? (
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <Admin />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/admin" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />
@@ -43,10 +58,10 @@ function App() {
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <Game />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/home" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />
@@ -57,10 +72,10 @@ function App() {
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <AddGame />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/home" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />
@@ -72,10 +87,10 @@ function App() {
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <EditGame />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/home" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />
@@ -87,10 +102,10 @@ function App() {
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <ReleaseDates />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/home" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />
@@ -102,10 +117,10 @@ function App() {
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <AddReleaseDate />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/home" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />
@@ -116,10 +131,10 @@ function App() {
               auth.getExpiryTime() && auth.loggedAdmin() ? (
                 <EditReleaseDate />
               ) : (
-                <Navigate to="/home" replace={true} />
+                <redirect to="/home" replace={true} />
               )
             ) : (
-              <Navigate to="/" replace={true} />
+              <redirect to="/" replace={true} />
             )
           }
         />

@@ -1,5 +1,6 @@
-#root {
-  background-color: rgba(0, 0, 0, 0.803);
+body {
+  // background-color: rgba(0, 0, 0, 0.803);
+  background-color: black;
   height: 100vh;
 }
 h1 {
@@ -49,17 +50,18 @@ h4 {
       background-size: cover;
       width: 100%;
       height: 100vh;
-      opacity: 0.3;
+      opacity: 0.7;
       overflow: hidden;
       background-repeat: no-repeat;
       background-position: center;
     }
   }
 }
+
 .containerGames {
   background-color: rgb(0, 0, 0);
   width: 1000px;
-  height: 100vh;
+  height: auto;
   margin: auto;
 
   .mb-4 {
@@ -199,14 +201,20 @@ h4 {
 /*************  PAGE LOGIN  ***********************************/
 
 .containerLogin {
-  width: auto;
   margin: auto;
   flex-wrap: wrap;
-  background-color: black;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
+  height: auto;
+  background-image: url(../assets/images/download1.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
 
   .imgLogin {
     display: flex;
@@ -242,15 +250,25 @@ h4 {
     }
   }
 }
+
+/****************  REGISTER  ********************************/
+
 .containerRegister {
   width: 100%;
   margin: auto;
-  background-color: black;
+  // background-color: white;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  height: auto;
+  background-image: url(../assets/images/download1.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
 
   .imgRegister {
     display: flex;
@@ -274,6 +292,131 @@ h4 {
     }
     .labelRegister {
       color: white;
+    }
+  }
+}
+
+/************  PAGE HOME ********************/
+.background {
+  width: 100%;
+  height: auto;
+  background-image: url(../assets/images/download.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  .containerHome {
+    max-width: 1500px;
+    min-height: 100vh;
+    margin: auto;
+    // background-color: #1f1f1f;
+    background-image: url(../assets/images/download1.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .games {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      .cardHome {
+        background-color: transparent;
+        border: none;
+
+        margin: 10px;
+        max-width: 300px;
+
+        .titleCard {
+          text-align: center;
+          color: white;
+          margin: 20px 0;
+          text-decoration: none;
+        }
+
+        .imgHome {
+          // max-width: 40%;
+          // height: auto;
+          margin: auto;
+          // display: flex;
+          // justify-content: center;
+          // align-items: center;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+/*******  NavBar  */
+.imgHeader {
+  img {
+    width: 100%;
+    margin-bottom: 150px;
+  }
+}
+.bg.body.tertiary {
+  color: black;
+}
+/*********  PAGE DETAILS *********************/
+.backgroundDetails {
+  width: 100%;
+  background-image: url(../assets/images/download.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+
+  .containerDetails {
+    max-width: 1500px;
+    height: auto;
+    background-image: url(../assets/images/download1.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+
+    .imgHeader {
+      max-width: 100%;
+      height: auto;
+    }
+    .details {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .titleCard {
+        color: white;
+        font-size: 25px;
+        margin-bottom: 30px;
+      }
+      .imgDetails {
+        max-width: 100%;
+        margin: 20px auto;
+      }
+      p {
+        color: white;
+        font-size: 18px;
+      }
     }
   }
 }

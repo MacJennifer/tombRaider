@@ -15,7 +15,7 @@ function Navigation() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-black">
       <Container fluid className="NavBarHome">
         <Navbar.Brand href="#"></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -29,7 +29,10 @@ function Navigation() {
               <Link
                 to="/home"
                 className="nav-link"
-                style={{ textDecoration: "none" }}
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                }}
               >
                 Accueil
               </Link>
@@ -39,7 +42,10 @@ function Navigation() {
                 <Link
                   to="/admin"
                   className="nav-link"
-                  style={{ textDecoration: "none" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
                 >
                   Admin
                 </Link>
@@ -50,7 +56,10 @@ function Navigation() {
                 to="/"
                 onClick={handleLogout}
                 className="nav-link"
-                style={{ textDecoration: "none" }}
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                }}
               >
                 Se déconnecter
               </Link>
