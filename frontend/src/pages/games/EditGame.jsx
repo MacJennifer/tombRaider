@@ -9,6 +9,7 @@ import NavigationAdmin from "../../components/NavigationAdmin";
 
 const EditGame = () => {
   const { gameId } = useParams();
+
   const navigate = useNavigate();
   const [validationError, setValidationError] = useState({});
 
@@ -67,6 +68,7 @@ const EditGame = () => {
     formData.append("editor", editor);
     formData.append("description", description);
     formData.append("image", image);
+    formData.append("release_id", release_id);
 
     try {
       await axios.post(`http://127.0.0.1:8000/api/games/${gameId}`, formData);
@@ -195,6 +197,9 @@ const EditGame = () => {
                             value={release_id}
                             onChange={handleChange}
                           >
+                            <option value="">
+                              Veuillez sélectionner une date de sortie
+                            </option>
                             {releaseDates.map((releaseDate) => (
                               <option
                                 key={releaseDate.id}

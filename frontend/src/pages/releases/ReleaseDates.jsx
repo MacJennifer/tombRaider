@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import ButtonRound from "../../components/buttons/ButtonRound";
 // import ButtonAdd from "../../components/buttons/ButtonAdd";
+import Footer from "../../components/Footer";
+import NavigationAdmin from "../../components/NavigationAdmin";
 import ButtonDelete from "../../components/buttons/ButtonDelete";
 import ButtonEdit from "../../components/buttons/ButtonEdit";
-import NavigationAdmin from "../../components/NavigationAdmin";
-
 const ReleaseDates = () => {
   const [releaseDates, setReleaseDates] = useState([]);
 
@@ -59,6 +59,7 @@ const ReleaseDates = () => {
               </Card>
             </div>
           ))}
+          <Footer />
         </div>
       </div>
     </div>

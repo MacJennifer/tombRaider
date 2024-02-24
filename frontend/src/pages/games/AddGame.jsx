@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 import NavigationAdmin from "../../components/NavigationAdmin";
+
 const AddGame = () => {
   const navigate = useNavigate();
   const [validationError, setValidationError] = useState({});

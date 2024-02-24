@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
 import image from "../assets/images/header.png";
+import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import "../styles/style.scss";
 
@@ -86,6 +87,7 @@ const Details = () => {
             </>
           )}
         </div>
+        <Footer />
       </div>
     </div>
   );

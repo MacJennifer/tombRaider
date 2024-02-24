@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import image from "../assets/images/header.png";
+import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import "../styles/style.scss";
-
 const Home = () => {
   const [games, setGames] = useState([]);
 
@@ -24,9 +24,10 @@ const Home = () => {
   }, []);
 
   return (
-    <dir className="background">
+    <div className="background">
       <div className="containerHome">
         <Navigation />
+
         <div className="imgHeader">
           <img src={image} alt="Lara Croft" />
         </div>
@@ -51,8 +52,9 @@ const Home = () => {
             </div>
           ))}
         </div>
+        <Footer />
       </div>
-    </dir>
+    </div>
   );
 };
 
